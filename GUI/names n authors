@@ -1,0 +1,13 @@
+from selenium import webdriver
+from selenium.webdriver.common.by import By  
+from bs4 import BeautifulSoup
+import pandas as pd
+driver = webdriver.Chrome(executable_path='C:\Program Files (x86)\Webdriver\chromedriver.exe')
+
+
+driver.get("https://b-ok.asia/")
+content = driver.page_source
+soup = BeautifulSoup(content)
+
+search=driver.find_element(By.ID,'booksMosaicBoxContainer')
+print("search:",search.text)
